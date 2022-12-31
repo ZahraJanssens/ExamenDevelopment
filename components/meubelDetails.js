@@ -2,12 +2,12 @@
 // import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 
 // import apiKey from '../apiKey';
-// import meubelsScreen from '../screens/meubelsScreen.';
+// import meubels from '../screens/meubels';
 
 
-// const meubelsScreen = ({navigation}) =>{
+// const meubels = ({navigation}) =>{
 
-//     const [meubelsScreen, setMeubels] = useState ([]);
+//     const [meubels, setMeubels] = useState ([]);
 
 //     const getMeubels = async () => {
 //         try {
@@ -16,7 +16,7 @@
 //             })
 //             const json = await response.json();
 //             setMeubels(json);
-//             console.log(meubelsScreen);
+//             console.log(meubels);
 //         } catch (error) {
 //             console.error(error);
 //         }
@@ -29,7 +29,7 @@
 
 //     return (
 //         <View>
-//             <FlatList data={meubelsScreen} renderItem={({item}) => (
+//             <FlatList data={meubels} renderItem={({item}) => (
                 
 //                 <View>
 //                 <Text>{item.title.rendered}</Text>
@@ -41,6 +41,22 @@
 //                 </View>
 
 //             </Pressable>
+
+//                 <ScrollView>
+//                     <Image
+//                         style={styles.afbeelding}
+//                         source={{
+//                         uri: meubelDetails.banner,
+//                     }}
+//                     />
+//                     <Text style={styles.listItem}>{meubelDetails.title}</Text>
+//                         <View style={styles.details}>
+//                             <Text>{meubleDetails.plot}</Text>
+//                             <Text style={styles.release}>release: {meubelDetails.release}</Text>
+//                         </View>
+
+//                 </ScrollView>
+
 
 //             </View>
 //             )}/>
@@ -54,6 +70,21 @@
 //     fontSize: 24,
 //     textAlign: 'center',
 //   },
+//   details: {
+//     borderWidth: 1,
+//     padding: 16,
+//     margin: 8,
+//   },
+//   afbeelding: {
+//     width: '100%',
+//     height: 450
+//   },
+//   release: {
+//     fontStyle: 'italic',
+//     fontSize: 12,
+//     marginTop: 8,
+//     textAlign: 'right',
+//   }
 
 // });
 // export default meubelDetails;

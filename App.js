@@ -2,13 +2,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableNativeFeedback  } from 'react-native';
 
 import meubelsScreen from './screens/meubels.js';
 import infoScreen from './screens/info.js';
+// import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
 
 const Stack = createNativeStackNavigator();
+
 
 export default function App() {
   return (
@@ -19,13 +21,28 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
+
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+
+  heading1:{
+    fontSize: 40,
+    fontWeight:'400',
+    margin: 8,
+    paddingTop: 30,
+   
+  },
+
+  container: {
+    flex: 1,
+    backgroundColor: '#dfdcf2',
+    paddingTop: 20, 
+    
+  },
+
+  shoppingcar:{
+    marginBottom: 10,
+}
+
+});
