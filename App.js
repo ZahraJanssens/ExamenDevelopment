@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, TouchableNativeFeedback  } from 'react-native';
 
 import MeubelsScreen from './screens/meubels.js';
 import InfoScreen from './screens/info.js';
-// import winkelkarScreen from './screens/winkelkar.js';
+import WinkelkarScreen from './screens/winkelkar.js';
 // import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
 
@@ -19,7 +19,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Trendy meubels" component={(MeubelsScreen)} />
         <Stack.Screen name="Info" component={(InfoScreen)} />
-        {/* <Stack.Screen name="winkelkar" component={(winkelkarScreen)} /> */}
+        <Stack.Screen name="Winkelkarretje" component={(WinkelkarScreen)} />
       </Stack.Navigator>
     </NavigationContainer>
   );
