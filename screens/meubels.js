@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList,fontFamily} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList,} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,8 +27,6 @@ const Meubels = ({navigation}) =>{
         getMeubels();
     }, []);
 
-    console.log(meubels.rttpg_excerpt)
-
     return (
         <View style={styles.screen}>
             <TextInput
@@ -36,17 +34,10 @@ const Meubels = ({navigation}) =>{
                 style={styles.input}
                 onChangeText={getMeubels}
             />
+            {/* <Text>
+                {route.params.filter} 
+            </Text> */}
 
-            <Pressable onPress={() => navigation.navigate("winkelkar")}>
-                    <View style={styles.shoppingcar}>
-                        <Image 
-                            style={styles.icon}
-                            source={{uri: 'https://www.flaticon.com/free-icon/shopping-cart_3144456?term=shopping+cart&page=1&position=1&origin=search&related_id=3144456'}}
-                        />
-                        <Text style={styles.getal}>0</Text>
-                    </View>
-            </Pressable>
-            
             {/* <FlatList data={meubels} renderItem={({item}) => (
                 
                 <View style={styles.background}>
@@ -66,8 +57,19 @@ const Meubels = ({navigation}) =>{
 
             <FlatList data={meubels} renderItem={({item}) => (
                 <View>
-                  <View style={styles.background}>
-                        <View style={styles.ItemTitle}>
+
+                    {/* <Pressable onPress={() => navigation.navigate("winkelkar")}>        
+                            <View style={styles.shoppingcar}>
+                                <Image 
+                                    style={styles.icon}
+                                    source={require("../assets/shopping-cart.png")}
+                                />
+                                <Text style={styles.getal}>0</Text>
+                            </View>
+                    </Pressable> */}
+
+                     <View style={styles.background}>
+                        <View style={styles.image}>
                             <Image style={styles.image} source={{uri: item.x_featured_media }} ></Image>
                         </View>
         
@@ -75,16 +77,15 @@ const Meubels = ({navigation}) =>{
                         <Text style={styles.description}>{item.yoast_head_json.og_description}</Text>
                         {/* <Text style={styles.discription}>{item.excerpt.rendered.split()}</Text> */}
                         
-                        <View style={styles.next}>
-                            <Pressable style={styles.button} onPress={() => navigation.navigate("Info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description, image: item.x_featured_media  })}>  
-                                <Text style={styles.meerInfo}>View {item.title.rendered}</Text>
-                            </Pressable>
-                            <Pressable style={styles.button2} onPress={() => increase()}>
-                                <Text style={styles.kijk}>Add to cart</Text>
-                            </Pressable>
-                        </View>
-                 </View>
-             </View>
+                        <Pressable style={styles.button} onPress={() => navigation.navigate("Info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description, image: item.x_featured_media  })}>  
+                            <Text style={styles.meerInfo}>Meer informatie</Text>
+                        </Pressable>
+
+                        <Pressable style={styles.button1} onPress={() => navigation.navigate("Winkelkarretje", {itemTitle: item.title.rendered,})}> 
+                            <Text style={styles.winkelkar}>Toevoegen aan winkelwagen</Text>
+                        </Pressable>
+                    </View>
+                </View>
               
             )}/>
 
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#da8ee7",
         borderRadius:10,
         margin: 10,
-        padding: 10,
+        padding: 30,
         marginTop: 20,
     },
 
@@ -119,19 +120,36 @@ const styles = StyleSheet.create({
 
         backgroundColor: "#aca5e6",
         borderRadius:10,
-        margin: 120,
+        margin: 80,
         marginVertical: '2%',
         padding: 10,
-        marginTop: 20,
+        marginBottom: -40,
+        marginLeft: -15,
+        marginRight: 200,
     },
 
-    button2:{
-        backgroundColor: "yellow",
+    button1: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        flexGrow: 0,
+        flexShrink: 0,
+        justifyContent: 'space-evenly',
+        flexBasis: '50%',//200
+
+        backgroundColor: "#8a00c2",
+        borderRadius:10,
+        margin: 45,
+        marginVertical: '2%',
         padding: 10,
+        marginTop: 5,
+        marginRight: -20,
+        marginLeft: 150,
     },
 
-    kijk:{
-        backgroundColor: "brown"
+    winkelkar:{
+       
+
     },
     
     shoppingcar:{
@@ -140,44 +158,55 @@ const styles = StyleSheet.create({
     },
 
     meerInfo:{
-        backgroundColor:"red",
+        // backgroundColor:"red",
     },
 
     ItemTitle:{
-        backgroundColor: "pink",
-     
-        width: 80,
-       height: 15,
+        // backgroundColor: "pink",
+        width: 100,
+        height: 15,
+        marginTop:-280,
+        marginLeft: 130,
+        
+       
         
     },
 
     description:{
-        backgroundColor: "red",
-        width:100,
-        height:90,
+        // backgroundColor: "red",
+        width:155,
+        height:30,
+        marginTop:310,
+        marginLeft: 100,
+     
     },
 
     image:{
-        width: 50,
-        height: 50,
-        marginLeft: 130,
-    },
-
-    icon:{
-        backgroundColor:'purple',
-        width: 50,
-        height: 30,
-        marginLeft: 345,
-        marginTop: - 35,
+       width:200,
+       height:250,
+       marginLeft: 40,
+       marginTop:20,
     },
 
     input:{
-        backgroundColor:"green",
+        // backgroundColor:"green",
         padding: 10,
         marginTop: 30,
         marginRight: 80,
         marginLeft: 10,
         borderRadius: 10,
+        borderColor:"black",
+        borderRadius: 10,
+        borderWidth:0.5,
+    },
+
+    icon:{
+        backgroundColor:'purple',
+        width: 40,
+        height: 40,
+        marginLeft: 300,
+        marginTop:-250,
+       
     },
 
     getal:{
@@ -186,7 +215,7 @@ const styles = StyleSheet.create({
         width: 10,
         height: 5,
         marginLeft: 370,
-        marginTop: -60,
+       
 
     },
 
