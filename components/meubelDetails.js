@@ -9,9 +9,9 @@ const Details = props => {
   }
   return (
     <TouchableOpacity style={styles.tile} activeOpacity={0.7} onPress={pressHandler}>
-      {console.log("render " + props.title)}
+      {console.log("render " + props.ItemTitle)}
       <View>
-        <Text style={styles.tileHeader}>{props.title}</Text>
+        <Text style={styles.ItemTitle}>{props.ItemTitle}</Text>
         <Text style={styles.tileText}>{pressCounter}</Text>
       </View>
     </TouchableOpacity>

@@ -10,13 +10,15 @@ const Info = ({route, navigation}) =>{
 
     return (
         <View style={styles.background}>
+
+        <Image style={styles.image} source={{uri:route.params.image}} />
+        
           <Text>
-            {route.params.title} 
-
-
+            {route.params.ItemTitle} 
+            {route.params.description} 
           </Text>
 
-          <Image style={styles.image} source={{uri:route.params.image}} />
+         
 
           {/* <ScrollView>
               <Image
@@ -69,8 +71,8 @@ const styles = StyleSheet.create({
       textAlign: 'right',
     },
     image:{
-      width: 150,
-      height: 150,
+      width: 380,
+      height: 450,
   },
   });
 
