@@ -4,8 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableNativeFeedback  } from 'react-native';
 
-import meubelsScreen from './screens/meubels.js';
-import infoScreen from './screens/info.js';
+import MeubelsScreen from './screens/meubels.js';
+import InfoScreen from './screens/info.js';
+// import winkelkarScreen from './screens/winkelkar.js';
 // import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
 
@@ -16,13 +17,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Trendy meubels" component={(meubelsScreen)} />
-        <Stack.Screen name="info" component={(infoScreen)} />
+        <Stack.Screen name="Trendy meubels" component={(MeubelsScreen)} />
+        <Stack.Screen name="Info" component={(InfoScreen)} />
+        {/* <Stack.Screen name="winkelkar" component={(winkelkarScreen)} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
 
 }
+
+
+
+
+
+
 
 const styles = StyleSheet.create({
 
@@ -41,8 +49,6 @@ const styles = StyleSheet.create({
     
   },
 
-  shoppingcar:{
-    marginBottom: 10,
-}
+
 
 });
