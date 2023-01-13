@@ -1,22 +1,43 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React, {useState} from 'react';
 
-const Filter = props => {
-  const [pressCounter, setPressCounter] = useState (0)
-  function pressHandler() {
-    console.log("pressed" + props.title);
-    setPressCounter((currentPressCounter)=> currentPressCounter + 1);
-  }
+const Filter = props =>  ({route, navigation})=>{
+
+
   return (
-    <TouchableOpacity style={styles.tile} activeOpacity={0.7} onPress={pressHandler}>
-      {console.log("render " + props.title)}
-      <View>
-        <Text style={styles.tileHeader}>{props.title}</Text>
-        <Text style={styles.tileText}>{pressCounter}</Text>
-      </View>
-    </TouchableOpacity>
+    <Pressable onPress={() => navigation.navigate("winkelkar")}>
+        <View style={styles.shoppingcar}>
+            <Image 
+                style={styles.icon}
+                source={require("..assets/shopping-cart.png")}
+            />
+            <Text style={styles.getal}>0</Text>
+        </View>
+    </Pressable>
   );
 
 }
+
+const styles = StyleSheet.create({
+    icon:{
+        backgroundColor:'purple',
+        width: 50,
+        height: 30,
+        marginLeft: 345,
+       
+    },
+
+    getal:{
+        backgroundColor: "orange",
+        padding: 15,
+        width: 10,
+        height: 5,
+        marginLeft: 370,
+       
+
+    },
+
+
+});
 
 export default Filter;
