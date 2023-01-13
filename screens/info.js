@@ -6,10 +6,10 @@ import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList, ScrollVie
 
 const Stack = createNativeStackNavigator();
 
-const info = ({route, navigation}) =>{
+const Info = ({route, navigation}) =>{
 
     return (
-        <View>
+        <View style={styles.background}>
           <Text>
             {route.params.title} 
 
@@ -40,6 +40,14 @@ const info = ({route, navigation}) =>{
 }
 
 const styles = StyleSheet.create({
+    background:{
+      backgroundColor: "#da8ee7",
+      borderRadius:10,
+      margin: 10,
+      padding: 10,
+      marginTop: 20,
+      height: 780,
+    },
     title: {
       margin: 16,
       fontSize: 24,
@@ -66,4 +74,4 @@ const styles = StyleSheet.create({
   },
   });
 
-export default info;
+export default Info;
