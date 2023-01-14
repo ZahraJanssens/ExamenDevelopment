@@ -4,9 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableNativeFeedback  } from 'react-native';
 
+import OpstartScreen from './screens/appOpstart.js';
 import MeubelsScreen from './screens/meubels.js';
 import InfoScreen from './screens/info.js';
-import WinkelkarScreen from './screens/winkelkar.js';
 import ReviewScreen from './screens/reviews.js';
 // import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
@@ -18,9 +18,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Welkom" component={(OpstartScreen)} />
         <Stack.Screen name="Trendy meubels" component={(MeubelsScreen)} />
         <Stack.Screen name="Info" component={(InfoScreen)} />
-        <Stack.Screen name="Winkelwagen" component={(WinkelkarScreen)} />
         <Stack.Screen name="Reviews" component={(ReviewScreen)} />
       </Stack.Navigator>
     </NavigationContainer>

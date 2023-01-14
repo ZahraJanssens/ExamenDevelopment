@@ -12,9 +12,7 @@ const Meubels = ({navigation}) =>{
 
     const getMeubels = async (enteredText) => {
         try {
-            const response = await fetch ("http://zahrajanssens.be/wp-json/wp/v2/posts?categories=6", {
-
-            })
+            const response = await fetch ("http://zahrajanssens.be/wp-json/wp/v2/posts?categories=6", {})
             const json = await response.json();
             setMeubels(json);
             console.log(Meubels);
@@ -39,9 +37,6 @@ const Meubels = ({navigation}) =>{
                 style={styles.input}
                 onChangeText={getMeubels}
             />
-            {/* <Text>
-                {route.params.filter} 
-            </Text> */}
             <View>
                 <Image 
                     style={styles.icon}
@@ -50,7 +45,6 @@ const Meubels = ({navigation}) =>{
                 <Text style={styles.getal}>{counter}</Text>
             </View>       
            
-
             <FlatList data={meubels} renderItem={({item}) => (
                 <View>
                     <View style={styles.background}>
@@ -71,10 +65,7 @@ const Meubels = ({navigation}) =>{
                         </Pressable>
                     </View>
                 </View>
-              
             )}/>
-
-
         </View>
 
     )   
@@ -84,6 +75,7 @@ const styles = StyleSheet.create({
 
     screen:{
         padding: 5,
+        paddingBottom: 50,
     },
 
     background:{
@@ -91,7 +83,6 @@ const styles = StyleSheet.create({
         borderRadius:10,
         margin: 10,
         padding: 30,
-        marginTop: 20,
     },
 
     button: {
@@ -125,20 +116,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#8a00c2",
         borderRadius:10,
         margin: 45,
-        marginVertical: '2%',
         padding: 10,
         marginTop: 5,
         marginRight: -20,
         marginLeft: 150,
-    },
-
-    winkelwagen:{
-       
-
-    },
-   
-    meerInfo:{
-        // backgroundColor:"red",
     },
 
     ItemTitle:{
@@ -147,9 +128,6 @@ const styles = StyleSheet.create({
         height: 15,
         marginTop:-280,
         marginLeft: 130,
-        
-       
-        
     },
 
     description:{
@@ -158,13 +136,11 @@ const styles = StyleSheet.create({
         height:30,
         marginTop:310,
         marginLeft: 100,
-     
     },
 
     image:{
-       width:200,
+       width:"100%",
        height:250,
-       marginLeft: 40,
        marginTop:20,
     },
 
@@ -181,24 +157,20 @@ const styles = StyleSheet.create({
     },
 
     icon:{
-        backgroundColor:'purple',
+        // backgroundColor:'purple',
         width: 40,
         height: 40,
         marginLeft: 350,
-        marginTop: -35,
-       
-       
+        marginTop: -40,
     },
 
     getal:{
-        backgroundColor: "orange",
+        // backgroundColor: "orange",
         padding: 15,
         width: 10,
         height: 5,
         marginLeft: 370,
         marginTop:-70,
-       
-
     },
 
 });

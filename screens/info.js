@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList, ScrollView,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image,TouchableOpacity} from 'react-native';
 
 import Details from '../components/meubelDetails';
 
@@ -17,8 +17,8 @@ const Info = ({route, navigation}) =>{
        description={route.params.description}
        image={route.params.image}
       />
-      <TouchableOpacity onPress={() => navigation.navigate("Reviews")}>
-        <Text>Ga naar reviews</Text>
+      <TouchableOpacity style={styles.review} onPress={() => navigation.navigate("Reviews")}>
+        <Text style={styles.naarReview}>Ga naar reviews</Text>
       </TouchableOpacity>
      </View>
 
@@ -30,36 +30,29 @@ const Info = ({route, navigation}) =>{
 const styles = StyleSheet.create({
     background:{
       backgroundColor: "#da8ee7",
-      borderRadius:10,
-      margin: 10,
+      margin:20,
+      borderRadius:30,
       padding: 10,
-      marginTop: 20,
-      height: 780,
+      height: 50,
     },
-    title: {
-      margin: 16,
-      fontSize: 24,
-      textAlign: 'center',
+
+    review:{
+      backgroundColor:"#aca5e6",
+      borderRadius:10,
+      margin: 80,
+      marginVertical: '2%',
+      padding: 10,
+      marginRight: 100,
+      marginLeft:100,
+      
+
     },
-    details: {
-      borderWidth: 1,
-      padding: 16,
-      margin: 8,
+    naarReview:{
+      
+      marginRight:30,
+      marginLeft:50,
     },
-    filmPoster: {
-      width: '100%',
-      height: 450
-    },
-    release: {
-      fontStyle: 'italic',
-      fontSize: 12,
-      marginTop: 8,
-      textAlign: 'right',
-    },
-    image:{
-      width: 380,
-      height: 450,
-  },
+
   });
 
 export default Info;
