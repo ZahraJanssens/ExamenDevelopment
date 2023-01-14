@@ -5,11 +5,11 @@ const Filter = props =>  ({route, navigation})=>{
 
 
   return (
-    <Pressable onPress={() => navigation.navigate("winkelkar")}>
-        <View style={styles.shoppingcar}>
+    <Pressable onPress={() => navigation.navigate("Winkelkarretje")}>
+        <View style={styles.icon}>
             <Image 
                 style={styles.icon}
-                source={require("..assets/shopping-cart.png")}
+                source={require("../assets/shopping-cart.png")}
             />
             <Text style={styles.getal}>0</Text>
         </View>

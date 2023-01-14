@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList,} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +17,7 @@ const Meubels = ({navigation}) =>{
             })
             const json = await response.json();
             setMeubels(json);
-            console.log(meubels);
+            console.log(Meubels);
         } catch (error) {
             console.error(error);
         }
@@ -26,6 +26,11 @@ const Meubels = ({navigation}) =>{
     useEffect(() => {
         getMeubels();
     }, []);
+
+    const[counter,setCounter] =useState(0);
+    const increase=() =>{
+        setCounter((currentCounter)=>currentCounter+1)
+    }
 
     return (
         <View style={styles.screen}>
@@ -37,52 +42,32 @@ const Meubels = ({navigation}) =>{
             {/* <Text>
                 {route.params.filter} 
             </Text> */}
-
-            {/* <FlatList data={meubels} renderItem={({item}) => (
-                
-                <View style={styles.background}>
-                    <Text style={styles.ItemTitle}>{item.title.rendered}</Text>
-                    <Image style={styles.image} source={{uri: item.x_featured_media}} />
-
-                    <Pressable onPress ={()=> navigation.navigate ("info", {title: item.title.rendered, image:item.x_featured_media })}>
-                    <View style={styles.container}>
-                        <View style={styles.meerInfo}>
-                            <Text>Meer informatie</Text>
-                        </View>  
-                    </View>
-                    </Pressable>
-
-                </View>
-            )}/> */}
+            <View>
+                <Image 
+                    style={styles.icon}
+                    source={require("../assets/shopping-cart.png")}
+                />
+                <Text style={styles.getal}>{counter}</Text>
+            </View>       
+           
 
             <FlatList data={meubels} renderItem={({item}) => (
                 <View>
-
-                    {/* <Pressable onPress={() => navigation.navigate("winkelkar")}>        
-                            <View style={styles.shoppingcar}>
-                                <Image 
-                                    style={styles.icon}
-                                    source={require("../assets/shopping-cart.png")}
-                                />
-                                <Text style={styles.getal}>0</Text>
-                            </View>
-                    </Pressable> */}
-
-                     <View style={styles.background}>
+                    <View style={styles.background}>
                         <View style={styles.image}>
-                            <Image style={styles.image} source={{uri: item.x_featured_media }} ></Image>
+                            <Image style={styles.image} source={{uri: item.yoast_head_json.og_image[0].url}} ></Image>
                         </View>
         
                         <Text style={styles.ItemTitle}>{item.title.rendered}</Text>
                         <Text style={styles.description}>{item.yoast_head_json.og_description}</Text>
                         {/* <Text style={styles.discription}>{item.excerpt.rendered.split()}</Text> */}
                         
-                        <Pressable style={styles.button} onPress={() => navigation.navigate("Info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description, image: item.x_featured_media  })}>  
+                        <Pressable style={styles.button} onPress={() => navigation.navigate("Info", {itemTitle: item.title.rendered, description: item.yoast_head_json.og_description, image:item.yoast_head_json.og_image[0].url  })}>  
                             <Text style={styles.meerInfo}>Meer informatie</Text>
                         </Pressable>
 
-                        <Pressable style={styles.button1} onPress={() => navigation.navigate("Winkelkarretje", {itemTitle: item.title.rendered,})}> 
-                            <Text style={styles.winkelkar}>Toevoegen aan winkelwagen</Text>
+                        <Pressable style={styles.button1} onPress={increase}> 
+                            <Text style={styles.winkelwagen}>Toevoegen aan winkelwagen</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -147,16 +132,11 @@ const styles = StyleSheet.create({
         marginLeft: 150,
     },
 
-    winkelkar:{
+    winkelwagen:{
        
 
     },
-    
-    shoppingcar:{
-        marginBottom: 10,
-       
-    },
-
+   
     meerInfo:{
         // backgroundColor:"red",
     },
@@ -204,8 +184,9 @@ const styles = StyleSheet.create({
         backgroundColor:'purple',
         width: 40,
         height: 40,
-        marginLeft: 300,
-        marginTop:-250,
+        marginLeft: 350,
+        marginTop: -35,
+       
        
     },
 
@@ -215,6 +196,7 @@ const styles = StyleSheet.create({
         width: 10,
         height: 5,
         marginLeft: 370,
+        marginTop:-70,
        
 
     },

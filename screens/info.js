@@ -2,40 +2,26 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList, ScrollView,TouchableOpacity} from 'react-native';
+
+import Details from '../components/meubelDetails';
 
 const Stack = createNativeStackNavigator();
 
 const Info = ({route, navigation}) =>{
 
     return (
-        <View style={styles.background}>
+     <View>
+      <Details
+       title={route.params.itemTitle}
+       description={route.params.description}
+       image={route.params.image}
+      />
+      <TouchableOpacity onPress={() => navigation.navigate("Reviews")}>
+        <Text>Ga naar reviews</Text>
+      </TouchableOpacity>
+     </View>
 
-        <Image style={styles.image} source={{uri:route.params.image}} />
-        
-          <Text>
-            {route.params.ItemTitle} 
-            {route.params.description} 
-          </Text>
-
-         
-
-          {/* <ScrollView>
-              <Image
-                style={styles.filmPoster}
-                source={{
-                  uri: info.banner,
-                }}
-              />
-              <Text style={styles.title}>{info.title}</Text>
-              <View style={styles.details}>
-                  <Text>{info.plot}</Text>
-                  <Text style={styles.release}>release: {info.release}</Text>
-              </View>
-
-          </ScrollView> */}
-
-        </View>
     );
 
 

@@ -7,6 +7,7 @@ import { StyleSheet, Text, View, TouchableNativeFeedback  } from 'react-native';
 import MeubelsScreen from './screens/meubels.js';
 import InfoScreen from './screens/info.js';
 import WinkelkarScreen from './screens/winkelkar.js';
+import ReviewScreen from './screens/reviews.js';
 // import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
 
@@ -19,7 +20,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Trendy meubels" component={(MeubelsScreen)} />
         <Stack.Screen name="Info" component={(InfoScreen)} />
-        <Stack.Screen name="Winkelkarretje" component={(WinkelkarScreen)} />
+        <Stack.Screen name="Winkelwagen" component={(WinkelkarScreen)} />
+        <Stack.Screen name="Reviews" component={(ReviewScreen)} />
       </Stack.Navigator>
     </NavigationContainer>
   );
