@@ -8,6 +8,8 @@ import OpstartScreen from './screens/appOpstart.js';
 import MeubelsScreen from './screens/meubels.js';
 import InfoScreen from './screens/info.js';
 import ReviewScreen from './screens/reviews.js';
+
+import Filter from './components/filter.js';
 // import AllMeubelsScreen from './screens/AllMeubelsScreen.js';
 
 
