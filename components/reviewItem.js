@@ -1,8 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, Pressable, FlatList, ScrollView,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View } from 'react-native';
 
 const ReviewItem = props => {
   return (
@@ -16,9 +12,11 @@ const styles = StyleSheet.create({
   review: {
     padding: 10,
     marginVertical: 10,//bestaat niet in CSS
-    backgroundColor: '#ccc',
+    backgroundColor: '#aca5e6',
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 3,
+    borderRadius: 10,
+    borderColor:"#da8ee7",
   }
 });
 

@@ -105,14 +105,6 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        flexGrow: 0,
-        flexShrink: 0,
-        justifyContent: 'space-evenly',
-        flexBasis: '50%',//200
-
         backgroundColor: "#aca5e6",
         borderRadius:10,
         margin: 80,
@@ -121,6 +113,11 @@ const styles = StyleSheet.create({
         marginBottom: -40,
         marginLeft: -15,
         marginRight: 200,
+    },
+
+    meerInfo:{
+      textAlign: "center",
+      
     },
 
     button1: {

@@ -24,18 +24,18 @@ const Reviews=() =>{
             {console.log(reviews)}
             <View style={styles.input}>
                 <TextInput
-                placeholder="Schrijft hier ma ne review jonge..."
+                placeholder="Laat hier een review achter!"
                 style={styles.text}
                 clearButtonMode="always"
                 onChangeText={inputHandler}
                 /> 
             </View>
             <View style={styles.btn}>
-                <Button title="Review toevoegen" onPress={reviewHandler} />
+                <Button title="Review toevoegen" onPress={reviewHandler}/>
             </View>
             <View style={styles.review}>
                 <FlatList data={reviews} renderItem={(itemData) => (
-                    <ReviewItem review={itemData.item} />
+                    <ReviewItem style={styles.review} review={itemData.item} />
                 )} />
             </View>
         </View >
@@ -44,7 +44,7 @@ const Reviews=() =>{
 
 const styles = StyleSheet.create({
     screen: {
-        backgroundColor:"pink",
+        // backgroundColor:"pink",
     },
 
     input: {
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         margin:10,
         borderRadius:10,
         height: 200,
-        borderColor:"purple",
+        borderColor:"#da8ee7",
         borderWidth:3,
     },
 
@@ -60,12 +60,18 @@ const styles = StyleSheet.create({
         margin:10,
     },
 
+    review:{
+        margin:10,
+    },
+
     btn:{
+        border: 3,
         borderRadius:10,
-        backgroundColor:"green",
+        backgroundColor:"#aca5e6",
         margin: 20,
-        color:"yellow",
-    }
+   
+    },
+ 
   });
 
 export default Reviews
